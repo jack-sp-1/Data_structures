@@ -1,0 +1,46 @@
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        #if head is None:
+            
+        head_n = head
+        count = 0
+        #list_new = []
+        from collections import deque
+        ab = deque()
+        #ba = deque()
+        
+        while(head):
+            
+            #list_new.append(head.val)
+            #print(head.val)
+            #print(count)
+            #if (count%2==0):
+            ab.append(head.val)
+            head = head.next
+            count = count + 1
+        #list_new = list_new[::-1]
+        cur=dummy = ListNode()
+        #print(count)
+        total_count = count 
+        if count%2==0:
+            count = floor(count/2)
+        else:
+            count = floor(count/2) 
+            count = count + 1
+           
+        #print(count)
+        while(count> 0):
+            cur.next = head_n
+            head_n = head_n.next
+            cur=cur.next
+            if (total_count%2==0 or (total_count%2!=0 and count!=1) or (total_count==1 and len(ab)!=1)):
+                cur.next = ListNode(ab.pop())
+                cur=cur.next
+            #ab.pop()
+            
+            count = count -1
+        cur.next = None    
+        return (dummy.next)
