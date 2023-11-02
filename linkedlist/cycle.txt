@@ -1,0 +1,15 @@
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        he1 = head
+        he2 = head
+        
+        while(he1!=None and he1.next!=None and he1.next.next!=None):
+            #print(he1)
+            #print(he2)
+            he1 = he1.next.next
+            he2 = he2.next
+            
+            if (he1 == he2):
+                return True
+        
+        return False
