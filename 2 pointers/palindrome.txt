@@ -1,0 +1,8 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        if s.strip()== "":
+            return True
+        pattern = re.compile('[^a-zA-Z0-9]')
+        s = pattern.sub('', s.lower())
+        #print(s)
+        return s == s[::-1]
