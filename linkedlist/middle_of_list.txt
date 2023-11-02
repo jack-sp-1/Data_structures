@@ -1,0 +1,23 @@
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        count = 0
+        dummy = ListNode()
+        head1 = head
+        if head is None:
+            return head
+        check = dummy
+        while(head):
+            count = count + 1
+            head = head.next
+            
+        print(count)
+        count1 = floor(count/2) + 1
+        while count1>0:
+            check.next = head1
+            head1 = head1.next
+            check = check.next
+            count1 = count1 - 1
+        
+        print(check)
+        return check
+            
